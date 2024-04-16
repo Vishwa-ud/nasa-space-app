@@ -1,3 +1,5 @@
+import './styles.css';
+
 export default function Sidebar(props) {
     const { handleToggleModal, data} = props
     return (

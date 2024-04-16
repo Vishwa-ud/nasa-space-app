@@ -1,3 +1,5 @@
+import './styles.css';
+
 export default function Footer(props) {
 
     const { showModal, handleToggleModal, data } = props

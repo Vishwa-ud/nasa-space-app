@@ -2,6 +2,19 @@
 
 NASA's picture of the day 
 
+## how to use the APIs.
+
+### Generate API Key 
+ - signup and get key via email
+ - use .env to keep api key secured no one can see.
+
+## APOD  (Astronomy Picture of the Day.)
+
+1. Call information
+- use UseEffect Hook to Fetch data
+
+ 
+
 ## Technology Stack
 - Frontend: React + Vite
 - Language: JavaScript

@@ -5,11 +5,15 @@
       title: "About",
     },
     {
-      id: "work",
+      id: "/apod",
       title: "APOD",
     },
     {
-      id: "contact",
+      id: "space",
       title: "Space",
+    },
+    {
+      id: "login",
+      title: "Login",
     },
   ];

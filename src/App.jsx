@@ -1,3 +1,7 @@
+import { BrowserRouter } from "react-router-dom"
+
+import {Navbar, Hero, Foot} from "./components"
+
 import { useEffect, useState } from "react" //hook 
 import Footer from "./components/Footer"
 import Main from "./components/Main"
@@ -46,6 +50,13 @@ function App() {
 
   return (
     <>
+    <BrowserRouter>
+    <div className="relative z-0 bg-primary">
+      <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+        <Navbar />
+      </div>
+      </div>
+      </BrowserRouter>
       {data ?  (<Main data ={data} />) : (
         <div className="loadingState">
           <i className="fa-solid fa-gear"></i>

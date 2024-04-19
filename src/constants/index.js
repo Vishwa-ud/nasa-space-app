@@ -13,7 +13,7 @@
       title: "Space",
     },
     {
-      id: "login",
-      title: "Login",
+      id: "/login",
+      title: "Logout",
     },
   ];

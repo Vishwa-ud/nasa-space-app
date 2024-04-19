@@ -1,5 +1,12 @@
 import { styles } from "./styles";
 
+
+import { grid } from 'ldrs'
+
+grid.register()
+
+
+
 const Hero = () => {
   return (
     <section className={`relative w-full h-screen mx-auto`}>
@@ -16,8 +23,13 @@ const Hero = () => {
             Hello,Welcome To <span className='text-[#915EFF]'>NASA SPACE APP.</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-          Explore excellence!
+          Explore excellence! 
           </p>
+          <l-grid
+              size="70"
+                speed="1.5" 
+                color="green" 
+            ></l-grid>
         </div>
       </div>
     </section>

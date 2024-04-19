@@ -1,12 +1,17 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar, Hero } from './components'; // Import Navbar and Hero components
 import { useEffect, useState } from 'react';
 import APOD from './components/APOD';
+
+import Login from './components/login/Login';
+import Signup from './components/signup/Signup';
 
 function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
+
+  const user = localStorage.getItem("token");
 
   function handleToggleModal() {
     setShowModal(!showModal);
@@ -45,7 +50,10 @@ function App() {
       <div>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Hero />} />
+          {user && <Route path="/" exact element={<Hero />} />}
+          <Route path="/signup" exact element={<Signup />} />
+          <Route path="/login" exact element={<Login />} />
+          <Route path="/" exact element={<Navigate repalce to ="/login" />} />
           <Route path="/apod" element={<APOD data={data} showModal={showModal} handleToggleModal={handleToggleModal} />} />
         </Routes>
       </div>

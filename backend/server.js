@@ -6,8 +6,8 @@ const connection = require('./db');
 const helmet = require('helmet');
 
 // Import routes
-//const UserRoutes = require('./routes/users');
-//const AuthRoutes = require('./routes/auth');
+const UserRoutes = require('./routes/users');
+const AuthRoutes = require('./routes/auth');
 
 
 // Connect to database
@@ -23,9 +23,9 @@ app.use(cors({
 app.use(helmet()); 
 
 //Routes
-//app.use('/api/v1/users', UserRoutes);
+app.use('/api/v1/users', UserRoutes);
 
-//app.use('/api/v1/auth', AuthRoutes);
+app.use('/api/v1/auth', AuthRoutes);
 
 
 

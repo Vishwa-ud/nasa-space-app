@@ -29,7 +29,7 @@ function App() {
         console.log('Fetched from cache today')
         return;
       }
-      localStorage.clear();
+      //localStorage.clear();
 
       try {
         const res = await fetch(url);
@@ -50,11 +50,11 @@ function App() {
       <div>
         <Navbar />
         <Routes>
-          {user && <Route path="/" exact element={<Hero />} />}
+          {user && <Route path="/"  element={<Hero />} />}
           <Route path="/signup" exact element={<Signup />} />
           <Route path="/login" exact element={<Login />} />
           <Route path="/" exact element={<Navigate repalce to ="/login" />} />
-          <Route path="/apod" element={<APOD data={data} showModal={showModal} handleToggleModal={handleToggleModal} />} />
+          <Route path="/apod" element={user ? <APOD data={data} showModal={showModal} handleToggleModal={handleToggleModal} /> : <Navigate to="/login" />} />
         </Routes>
       </div>
     </Router>

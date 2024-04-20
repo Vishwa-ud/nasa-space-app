@@ -5,6 +5,7 @@ import APOD from './components/APOD';
 
 import Login from './components/login/Login';
 import Signup from './components/signup/Signup';
+import Earth from './components/Earth';
 
 function App() {
   const [data, setData] = useState(null);
@@ -55,6 +56,7 @@ function App() {
           <Route path="/login" exact element={<Login />} />
           <Route path="/" exact element={<Navigate repalce to ="/login" />} />
           <Route path="/apod" element={user ? <APOD data={data} showModal={showModal} handleToggleModal={handleToggleModal} /> : <Navigate to="/login" />} />
+          <Route path="/space" element={<Earth />} />
         </Routes>
       </div>
     </Router>

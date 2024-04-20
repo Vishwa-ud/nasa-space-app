@@ -58,12 +58,50 @@ npm run dev
  - signup and get key via email
  - use .env to keep api key secured no one can see.
 
-## APOD  (Astronomy Picture of the Day.)
+# APOD  (Astronomy Picture of the Day.)
 
 1. Call information
 - use UseEffect Hook to Fetch data
 
- 
+---
+
+ # Earth
+
+ ## Introduction
+This React component (`Earth`) is designed to fetch and display satellite imagery of Earth using the NASA API. It allows users to input specific geographic coordinates (longitude and latitude) and a date to retrieve an image of that location from space as captured on the specified date.
+
+## NASA API
+We used the `planetary/earth/assets` endpoint from the NASA API. This endpoint requires parameters such as longitude (`lon`), latitude (`lat`), date (`date`), and the dimension (`dim`) which controls the zoom level of the image.
+
+## Implementation
+The `Earth` component is implemented using React hooks. It initializes with default values representing a specific location and date. Users can update these values to fetch new images. The component handles the API response and updates the state to display the image.
+
+## Challenges and Resolutions
+
+### CORS Issue
+Initially,  encountered a Cross-Origin Resource Sharing (CORS) issue, which is common when making API requests from the client side.
+
+**Resolution:**  resolved this by setting up a proxy server that forwards requests to the NASA API, thereby avoiding CORS restrictions.
+
+### Image Size
+The images returned by the API were initially too large for our application's layout.
+
+**Resolution:** handled this by using the `dim` parameter to fetch an image with a suitable zoom level and applied CSS styling to ensure the image fits within the layout.
+
+### API Key Management
+Exposing the API key in the client-side code is a security risk.
+
+**Resolution:** used environment variables to securely store the NASA API key and accessed it in the component via `import.meta.env.VITE_NASA_API_KEY`.
+
+### Error Handling
+had to ensure that any errors in the API request were caught and handled gracefully.
+
+**Resolution:**  implemented a try-catch block to log errors and provide user feedback in case of a failed request.
+
+## Conclusion
+The Earth imagery component provides a user-friendly interface to view satellite images from NASA. This component can be further enhanced by implementing features such as dynamic input fields for user-provided coordinates and dates, and a more sophisticated error handling and user notification system.
+
+---
 
 ## Technology Stack
 - Frontend: React + Vite

@@ -9,7 +9,11 @@
       title: "APOD",
     },
     {
-      id: "space",
-      title: "Space",
+      id: "/space",
+      title: "Earth",
+    },
+    {
+      id: "/mars",
+      title: "Mars",
     },
   ];

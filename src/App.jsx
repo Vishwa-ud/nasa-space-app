@@ -6,6 +6,7 @@ import APOD from './components/APOD';
 import Login from './components/login/Login';
 import Signup from './components/signup/Signup';
 import Earth from './components/Earth';
+import Mars from './components/Mars';
 
 function App() {
   const [data, setData] = useState(null);
@@ -50,6 +51,7 @@ function App() {
     <Router>
       <div>
         <Navbar />
+        <div className="pt-20 md:pt-20 lg:pt-20">{/*Add padding to main componets */}
         <Routes>
           {user && <Route path="/"  element={<Hero />} />}
           <Route path="/signup" exact element={<Signup />} />
@@ -57,7 +59,9 @@ function App() {
           <Route path="/" exact element={<Navigate repalce to ="/login" />} />
           <Route path="/apod" element={user ? <APOD data={data} showModal={showModal} handleToggleModal={handleToggleModal} /> : <Navigate to="/login" />} />
           <Route path="/space" element={<Earth />} />
+          <Route path ="/mars" element={<Mars />}/>
         </Routes>
+        </div>
       </div>
     </Router>
   );

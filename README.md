@@ -71,7 +71,7 @@ npm run dev
 This React component (`Earth`) is designed to fetch and display satellite imagery of Earth using the NASA API. It allows users to input specific geographic coordinates (longitude and latitude) and a date to retrieve an image of that location from space as captured on the specified date.
 
 ## NASA API
-We used the `planetary/earth/assets` endpoint from the NASA API. This endpoint requires parameters such as longitude (`lon`), latitude (`lat`), date (`date`), and the dimension (`dim`) which controls the zoom level of the image.
+used the `planetary/earth/assets` endpoint from the NASA API. This endpoint requires parameters such as longitude (`lon`), latitude (`lat`), date (`date`), and the dimension (`dim`) which controls the zoom level of the image.
 
 ## Implementation
 The `Earth` component is implemented using React hooks. It initializes with default values representing a specific location and date. Users can update these values to fetch new images. The component handles the API response and updates the state to display the image.
@@ -101,6 +101,32 @@ had to ensure that any errors in the API request were caught and handled gracefu
 ## Conclusion
 The Earth imagery component provides a user-friendly interface to view satellite images from NASA. This component can be further enhanced by implementing features such as dynamic input fields for user-provided coordinates and dates, and a more sophisticated error handling and user notification system.
 
+# Mars Rover Photos Viewer
+
+## Overview
+The Mars Rover Photos Viewer component in our application utilizes the Mars Rover Photos API provided by NASA. This API allows users to retrieve photos taken by NASA's Mars rovers. Users can specify the Mars sol (solar day on Mars), the rover's camera, and pagination options to explore various photographs captured on the Martian surface.
+
+## API Description
+The Mars Rover Photos API offers access to a comprehensive collection of images from different cameras mounted on three rovers — Curiosity, Opportunity, and Spirit — based on several parameters:
+- `sol`: Mars solar day of the rover mission.
+- `camera`: Specific camera on the rover.
+- `page`: Pagination parameter for the response.
+
+## Implementation Details
+The `Mars` component is implemented as a React functional component using hooks such as `useState` for managing state (e.g., selected sol, camera, and page) and `useEffect` for side effects to fetch data based on user input.
+
+## Challenges and Solutions
+### Rate Limiting
+**Challenge:** Initially, frequent API calls during development quickly led to hitting the rate limit imposed by NASA's API.
+**Solution:** implemented conditional fetching to minimize unnecessary requests and introduced a simple caching mechanism to store previously fetched data. Additionally, added error handling to gracefully inform users when the rate limit has been exceeded.
+
+### Handling API Data Structure
+**Challenge:** The API's response structure varied significantly based on the query parameters, sometimes leading to errors in rendering when data was absent.
+**Solution:** added robust error handling and data structure checks before attempting to render the photos. This ensured that the application could handle empty or unexpected responses without crashing.
+
+### UI Overlap
+**Challenge:** The fixed navbar was overlapping with the photo viewer component, obscuring part of the images.
+**Solution:**  adjusted the CSS of the main content area using Tailwind CSS to include sufficient top padding that accounted for the navbar's height, ensuring all UI elements are distinctly visible and accessible.
 ---
 
 ## Technology Stack

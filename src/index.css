@@ -130,6 +130,16 @@
   --green-rgb: 125 161 35;
 }
 
+/*Bug Fixed*/
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Ensures it takes full width of its container */
+  min-height: 100vh; /* Minimum height to take full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   font-family: "Work Sans", sans-serif;
 }

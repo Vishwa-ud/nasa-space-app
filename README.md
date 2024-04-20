@@ -1,6 +1,56 @@
 # React Frontend Application Using NASA APIs
 
-NASA's picture of the day 
+#  Setup guide
+
+To run this project locally, follow these steps:
+
+1. Create a New Folder Open it
+
+2. Press Alt + D to select the address bar.
+
+3. Type cmd and press Enter. This will open a command prompt window with the current folder as its location. (this method will open a command prompt window with the directory set to the folder you specified, allowing you to run commands directly in that folder)
+
+4. Clone the repository to your local machine using Git:
+
+```bash
+git clone <github_repo_link>
+```
+5. To Run Backend and Frontend of the application follow below instructions.
+
+#### Backend
+
+1. Navigate to the project directory 
+  ```
+  cd backend
+  ```
+2. Install the project dependencies using npm.
+```
+npm i
+```
+3. run backend
+```
+npm start
+```
+
+#### Frontend
+1. Open another terminal.
+
+2. Navigate to the project directory.
+  ```
+  cd frontend
+  ```
+3. Install the project dependencies using npm.
+```
+npm i
+```
+4. run frontend
+```
+npm run dev
+```
+
+#  Build process
+
+# API Integration
 
 ## how to use the APIs.
 
@@ -18,8 +68,9 @@ NASA's picture of the day
 ## Technology Stack
 - Frontend: React + Vite
 - Language: JavaScript
+- CSS Framework: Tailwind CSS
 - Version Control: GitHub
-- Hosting Platform: Netlify
+- Hosting Platform: _______
 
 ## Functional Requirements
 

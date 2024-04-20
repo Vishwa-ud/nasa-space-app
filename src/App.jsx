@@ -7,6 +7,7 @@ import Login from './components/login/Login';
 import Signup from './components/signup/Signup';
 import Earth from './components/Earth';
 import Mars from './components/Mars';
+import About from './components/About';
 
 function App() {
   const [data, setData] = useState(null);
@@ -60,6 +61,7 @@ function App() {
           <Route path="/apod" element={user ? <APOD data={data} showModal={showModal} handleToggleModal={handleToggleModal} /> : <Navigate to="/login" />} />
           <Route path="/space" element={<Earth />} />
           <Route path ="/mars" element={<Mars />}/>
+          <Route path ="/about" element={<About />}/>
         </Routes>
         </div>
       </div>

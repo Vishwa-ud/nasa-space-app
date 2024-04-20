@@ -31,7 +31,7 @@ function Earth() {
     return (
         <div>
             {/* Check if imageUrl exists and is not null */}
-            {imageUrl ? <img src={imageUrl} alt="Earth from space" style={{ width: '100%', maxHeight: '600px' }} /> : <p>Loading...</p>}
+            {imageUrl ? <img src={imageUrl} alt="Earth from space" style={{ width: '50%', maxHeight: '500px' }} /> : <p>Loading...</p>}
         </div>
     );
 }

@@ -118,3 +118,60 @@
 	color: white;
 	margin: 10px;
 }
+
+.input:focus {
+    border: 2px solid #3bb19b; /* A subtle green border */
+    background-color: #ffffff; /* Brighter background for focus */
+}
+
+.white_btn:hover, .green_btn:hover {
+    background-color: #f7f7f7; /* Light grey for white button hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Subtle elevation */
+}
+
+.green_btn:hover {
+    background-color: #33a589; /* A slightly darker green for hover */
+}
+
+@media (max-width: 768px) {
+    .login_form_container {
+        width: 80%; /* Reduce width */
+        flex-direction: column; /* Stack the elements vertically */
+        height: auto; /* Adjust height to content */
+    }
+
+    .left, .right {
+        flex: 1 1 100%; /* Make left and right sections take full width */
+        border-radius: 0; /* Optional: Adjust border-radius for smaller screens */
+    }
+
+    .input, .error_msg {
+        width: calc(100% - 30px); /* Adjust input width to fit the container */
+    }
+
+    .form_container h1, .right h1 {
+        font-size: 30px; /* Reduce font size for smaller screens */
+    }
+	.white_btn, .green_btn {
+        width: 160px; /* Adjust button sizes */
+        padding: 10px 0;
+		margin-bottom: 5px;
+    }
+}
+
+/* Further adjustments for smaller devices, typically smartphones. */
+@media (max-width: 480px) {
+    .form_container h1, .right h1 {
+        font-size: 24px; /* Further reduce the font size */
+    }
+
+    .input, .error_msg {
+        padding: 10px; /* Reduce padding for a more compact look */
+    }
+
+    .white_btn, .green_btn {
+        width: 160px; /* Adjust button sizes */
+        padding: 10px 0;
+		margin-bottom: 5px;
+    }
+}

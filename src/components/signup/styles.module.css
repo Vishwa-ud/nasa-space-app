@@ -117,3 +117,74 @@
 	color: white;
 	margin: 10px;
 }
+
+
+.input:focus {
+    border: 2px solid #3bb19b; /* A subtle green border */
+    background-color: #ffffff; /* Brighter background for focus */
+}
+
+.white_btn:hover, .green_btn:hover {
+    background-color: #f7f7f7; /* Light grey for white button hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Subtle elevation */
+}
+
+.green_btn:hover {
+    background-color: #33a589; /* A slightly darker green for hover */
+}
+
+@media (max-width: 768px) {
+    .signup_form_container {
+        width: 95%; /* Use more of the screen on smaller devices */
+        flex-direction: column; /* Stack vertically */
+        height: auto; /* Make height flexible */
+    }
+
+    .left, .right {
+        width: 100%; /* Take full width of the container */
+        flex: none; /* Remove flex sizing */
+        border-radius: 10px; /* Adjust border-radius */
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 0;
+        box-shadow: none; /* Optional: Reduce shadow on smaller screens */
+    }
+
+    .left {
+        order: 2; /* Optionally move the left section below the form on small screens */
+        margin-top: 20px; /* Add space between sections when stacked */
+    }
+
+    .right {
+        order: 1; /* Keep the form on top when stacked */
+    }
+
+    .input, .error_msg, .white_btn, .green_btn {
+        width: 90%; /* Increase the width of form elements for easier access */
+        margin: 10px auto; /* Center and add more vertical space between elements */
+    }
+
+    .form_container h1, .left h1 {
+        font-size: 30px; /* Reduce the font size for headers */
+    }
+
+    .input, .white_btn, .green_btn {
+        padding: 12px; /* Increase padding for better touch interaction */
+    }
+	.white_btn, .green_btn {
+        width: 160px; /* Adjust button sizes */
+        padding: 10px 0;
+		margin-bottom: 5px;
+    }
+}
+
+/* Optionally, you could add another breakpoint for very small screens */
+@media (max-width: 480px) {
+    .form_container h1, .left h1 {
+        font-size: 24px; /* Further reduce the font size for very small screens */
+    }
+	.white_btn, .green_btn {
+        width: 160px; /* Adjust button sizes */
+        padding: 10px 0;
+		margin-bottom: 5px;
+    }
+}

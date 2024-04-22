@@ -53,6 +53,15 @@ const Navbar = () => {
               <Link to={link.id}>{link.title}</Link>
             </li>
           ))}
+          {loggedIn ? (
+      <li className='text-white font-poppins font-medium cursor-pointer text-[16px]' onClick={handleLogout}>
+        Logout
+      </li>
+    ) : (
+      <li className='text-white font-poppins font-medium cursor-pointer text-[16px]'>
+        <Link to='/login'>Login</Link>
+      </li>
+    )}
         </ul>
         <div className='sm:hidden flex flex-1 justify-end items-center'>
           <img
@@ -75,18 +84,19 @@ const Navbar = () => {
                   <Link to={link.id}>{link.title}</Link>
                 </li>
               ))}
+              {loggedIn ? (
+      <li className='text-white font-poppins font-medium cursor-pointer text-[16px]' onClick={handleLogout}>
+        Logout
+      </li>
+    ) : (
+      <li className='text-white font-poppins font-medium cursor-pointer text-[16px]'>
+        <Link to='/login'>Login</Link>
+      </li>
+    )}
             </ul>
           </div>
         </div>
-        {loggedIn ? ( // Conditional rendering based on login status
-          <button className='hidden sm:block text-white font-poppins font-medium cursor-pointer text-[16px]' onClick={handleLogout}>
-            Logout
-          </button>
-        ) : (
-          <Link className='hidden sm:block text-white font-poppins font-medium cursor-pointer text-[16px]' to='/login'>
-            Login
-          </Link>
-        )}
+        
       </div>
     </nav>
   );

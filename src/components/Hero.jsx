@@ -1,4 +1,6 @@
 import { styles } from "./styles";
+import backgroundImage from '../assets/background.jpg';
+
 
 
 import { grid } from 'ldrs'
@@ -6,10 +8,11 @@ import { grid } from 'ldrs'
 grid.register()
 
 
-
 const Hero = () => {
   return (
-    <section className={`relative w-full h-screen mx-auto`}>
+    <section className={`relative w-full h-screen mx-auto`}
+    style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+    >
       <div
         className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
       >
@@ -26,9 +29,9 @@ const Hero = () => {
           Explore excellence! 
           </p>
           <l-grid
-              size="70"
+              size="90"
                 speed="1.5" 
-                color="green" 
+                color="#915EFF" 
             ></l-grid>
         </div>
       </div>

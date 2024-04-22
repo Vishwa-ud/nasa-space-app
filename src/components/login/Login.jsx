@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 
-import backgroundImage from '../../assets/herobg.png';
+import backgroundImage from '../../assets/BGMain.jpg';
 
 const Login = () => {
     const  [data, setData] = useState({

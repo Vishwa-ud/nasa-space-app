@@ -65,41 +65,30 @@ npm run dev
 
 ---
 
- # Earth
+ # EPIC
 
- ## Introduction
-This React component (`Earth`) is designed to fetch and display satellite imagery of Earth using the NASA API. It allows users to input specific geographic coordinates (longitude and latitude) and a date to retrieve an image of that location from space as captured on the specified date.
+ ## Overview
+ NASA EPIC API to retrieve Earth imagery captured by the DSCOVR satellite. The API provides access to both natural and enhanced color images taken on specific dates. By integrating this API, users can explore stunning images of our planet taken from space.
 
-## NASA API
-used the `planetary/earth/assets` endpoint from the NASA API. This endpoint requires parameters such as longitude (`lon`), latitude (`lat`), date (`date`), and the dimension (`dim`) which controls the zoom level of the image.
+## Challenges Faced
 
-## Implementation
-The `Earth` component is implemented using React hooks. It initializes with default values representing a specific location and date. Users can update these values to fetch new images. The component handles the API response and updates the state to display the image.
+1. **API Key Handling**: One challenge was securely handling the NASA API key. used environment variables through Vite (`import.meta.env`) to store the key securely and access it within the application.
 
-## Challenges and Resolutions
+2. **Date Formatting**: The API requires dates to be in a specific format. faced challenges in formatting dates correctly to match the API's requirements. However, resolved this by converting JavaScript Date objects to the required ISO format using `toISOString()`.
 
-### CORS Issue
-Initially,  encountered a Cross-Origin Resource Sharing (CORS) issue, which is common when making API requests from the client side.
+3. **Data Handling**: The API responses contain various data fields, and handling them dynamically posed a challenge. addressed this by parsing the response data and displaying relevant information based on user selections.
 
-**Resolution:**  resolved this by setting up a proxy server that forwards requests to the NASA API, thereby avoiding CORS restrictions.
+4. **Image Format**: Initially, images were not fetched in PNG format, causing issues with rendering. To resolve this, we modified the image URL to explicitly request the PNG format from the API.
 
-### Image Size
-The images returned by the API were initially too large for our application's layout.
+## Resolution
 
-**Resolution:** handled this by using the `dim` parameter to fetch an image with a suitable zoom level and applied CSS styling to ensure the image fits within the layout.
+1. **API Key Handling**: securely stored the NASA API key in a Vite environment variable (`VITE_NASA_API_KEY`). This approach keeps the key out of version control and ensures security.
 
-### API Key Management
-Exposing the API key in the client-side code is a security risk.
+2. **Date Formatting**: To correctly format dates for API requests,  used JavaScript's `toISOString()` method to convert Date objects into the required format. This ensured compatibility with the API's date parameters.
 
-**Resolution:** used environment variables to securely store the NASA API key and accessed it in the component via `import.meta.env.VITE_NASA_API_KEY`.
+3. **Data Handling**: parsed the API response data and displayed relevant information dynamically based on user selections. This involved conditional rendering of components and fields, ensuring a seamless user experience.
 
-### Error Handling
-had to ensure that any errors in the API request were caught and handled gracefully.
-
-**Resolution:**  implemented a try-catch block to log errors and provide user feedback in case of a failed request.
-
-## Conclusion
-The Earth imagery component provides a user-friendly interface to view satellite images from NASA. This component can be further enhanced by implementing features such as dynamic input fields for user-provided coordinates and dates, and a more sophisticated error handling and user notification system.
+4. **Image Format**: We updated the image URL to explicitly request the PNG format from the API. By appending `.png` to `imageData.image`, we ensured that images are fetched in the desired PNG format, resolving rendering issues.
 
 # Mars Rover Photos Viewer
 

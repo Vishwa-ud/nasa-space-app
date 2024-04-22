@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 
+import backgroundImage from '../../assets/herobg.png';
+
 const Signup = () => {
     const  [data, setData] = useState({
         firstName: '',
@@ -35,7 +37,7 @@ const Signup = () => {
     }
 
     return (
-        <div className={styles.signup_container}>
+        <div className={styles.signup_container} style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className={styles.signup_form_container}>
                 <div className={styles.left}>
                     <h1>Welcome Back</h1>

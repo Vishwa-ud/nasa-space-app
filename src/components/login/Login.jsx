@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 
+import backgroundImage from '../../assets/herobg.png';
+
 const Login = () => {
     const  [data, setData] = useState({
         email: '',
@@ -32,7 +34,7 @@ const Login = () => {
     }
 
     return (
-        <div className={styles.login_container}>
+        <div className={styles.login_container}  style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className={styles.login_form_container}>
                 <div className={styles.left}>
                 <form className={styles.form_container} onSubmit={handleSubmit}>

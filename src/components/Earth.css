@@ -24,3 +24,22 @@
 .details-container {
     text-align: left;
 }
+.submit-btn {
+    background-color: #774caf; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: background-color 0.3s; /* Add transition for smooth hover effect */
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+/* Hover effect */
+.submit-btn:hover {
+    background-color: #5945a0; /* Darker shade of green */
+}

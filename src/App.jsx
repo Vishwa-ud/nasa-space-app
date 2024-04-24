@@ -59,8 +59,8 @@ function App() {
           <Route path="/login" exact element={<Login />} />
           <Route path="/" exact element={<Navigate repalce to ="/login" />} />
           <Route path="/apod" element={user ? <APOD data={data} showModal={showModal} handleToggleModal={handleToggleModal} /> : <Navigate to="/login" />} />
-          <Route path="/space" element={<Earth />} />
-          <Route path ="/mars" element={<Mars />}/>
+          <Route path="/space" element={user ? <Earth /> : <Navigate to="/login" />} /> 
+          <Route path ="/mars" element={ user ? <Mars /> : <Navigate to="/login" />} /> 
           <Route path ="/about" element={<About />}/>
         </Routes>
         </div>

@@ -39,7 +39,18 @@ function Earth() {
     }
 
     return (
-        <div className="earth-bg" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' ,width: '100%',height: '300vh'}}>
+        <div>
+            <div style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        width: '100vw',  // 100% of the viewport width
+        height: '100vh', // 100% of the viewport height
+        position: 'fixed', // Optional: makes it cover the entire screen at all times
+        top: 60,
+        left: 0,
+        zIndex: -1 // Optional: ensures it stays behind other content
+      }}></div>
         
         <div className="bg-purple/30 backdrop-blur-md transition-shadow hover:shadow-xl rounded-lg p-6 border border-white/60">
             <form onSubmit={handleSubmit} className="form-container">

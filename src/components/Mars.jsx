@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
+import backgroundImage from '../assets/Earth.jpg';
+
 function Mars() {
-    const [sol, setSol] = useState();
+    const [sol, setSol] = useState('');
     const [camera, setCamera] = useState('');
     const [page, setPage] = useState(1);
     const [photos, setPhotos] = useState([]);
@@ -55,9 +57,20 @@ function Mars() {
 
     return (
         <div className="container mx-auto p-4">
+            <div style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        width: '100vw',  // 100% of the viewport width
+        height: '100vh', // 100% of the viewport height
+        position: 'fixed', // Optional: makes it cover the entire screen at all times
+        top: 60,
+        left: 0,
+        zIndex: -1 // Optional: ensures it stays behind other content
+      }}></div>
             <h1 className="text-3xl font-bold mb-4">Mars Rover Photos</h1>
             <div className="flex items-center justify-center space-x-4 mb-4">
-                <label htmlFor="sol" className="text-white-700">Enter Sol (Mars Solar Day):</label>
+                <label  className="text-white-700">Enter Sol (Mars Solar Day):</label>
                 <input type="number" value={sol} onChange={e => setSol(e.target.value)} placeholder="Sol (Mars Solar Day)" className="border border-gray-300 rounded-md py-2 px-4" />
                 
                 <select value={camera} onChange={e => setCamera(e.target.value)} className="border border-gray-300 rounded-md py-2 px-4">
@@ -73,7 +86,7 @@ function Mars() {
                     <option value="MINITES">MINITES</option>
                 </select>
                 
-                <label htmlFor="page" className="text-white-700">Enter Page Number:</label>
+                <label  className="text-white-700">Enter Page Number:</label>
                 <input type="number" value={page} onChange={e => setPage(e.target.value)} placeholder="Page Number" className="border border-gray-300 rounded-md py-2 px-4" />
                 
                 <button onClick={fetchPhotos} disabled={loading} className="bg-blue-500 text-white font-bold py-2 px-4 rounded">
@@ -84,7 +97,7 @@ function Mars() {
             {error ? <p className="text-red-500 mb-4">{error}</p> : null}
 
             {roverManifest && (
-                <div className="mb-4">
+                <div className="bg-black/30 backdrop-blur-md transition-shadow hover:shadow-xl rounded-lg p-6 border border-white/60">
                     <h2 className="text-xl font-bold">Mission Manifest</h2>
                     <p>Rover: {roverManifest.name}</p>
                     <p>Landing Date: {roverManifest.landing_date}</p>

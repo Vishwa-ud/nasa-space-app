@@ -32,9 +32,9 @@ function About() {
           </div>
 
           <div className="bg-purple/30 backdrop-blur-md transition-shadow hover:shadow-xl rounded-lg p-6 border border-white/60">
-            <h2 className="text-3xl font-bold text-blue-600">Earth</h2>
+            <h2 className="text-3xl font-bold text-blue-600">EPIC</h2>
             <p className="text-white-700 mt-2">
-              Visualize Earth from space with customizable satellite imagery. Adjust parameters like date, location, and cloud score for unique perspectives.
+            NASA's EPIC API (Earth Polychromatic Imaging Camera Application Programming Interface) offers access to a unique collection of breathtaking images of Earth captured by the Deep Space Climate Observatory (DSCOVR) satellite. These images showcase our planet's beauty and dynamic nature from a remarkable vantage point in space, providing valuable resources for scientific research, educational purposes, and public engagement with Earth and space exploration
             </p>
           </div>
 

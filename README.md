@@ -1,6 +1,24 @@
 # React Frontend Application Using NASA APIs
 
-#  Setup guide
+
+ Table of contents
+=================
+
+<!--ts-->
+   * [Setup guide](#setup-guide)
+   * [Build process](#build-process)
+   * [API Integration](#api-integration)
+     * [APOD  (Astronomy Picture of the Day).](#apod-(astronomy-picture-of-the-day).)
+     * [EPIC  (Earth Polychromatic Imaging Camera).](epic-(earth-polychromatic-imaging-camera).)
+     * [Mars Rover Photos Viewer](#mars-rover-photos-viewer)
+   * [Testing](#testing)
+      * [Unit Testing](#unit-testing)
+      * [Integration Testing ](#integration-testing)
+    
+        
+<!--te-->
+
+##  Setup guide
 
 To run this project locally, follow these steps:
 
@@ -48,9 +66,9 @@ npm i
 npm run dev
 ```
 
-#  Build process
+##  Build process
 
-# API Integration
+## API Integration
 
 ## how to use the APIs.
 
@@ -58,19 +76,19 @@ npm run dev
  - signup and get key via email
  - use .env to keep api key secured no one can see.
 
-# APOD  (Astronomy Picture of the Day.)
+## APOD  (Astronomy Picture of the Day.)
 
 1. Call information
 - use UseEffect Hook to Fetch data
 
 ---
 
- # EPIC
+ ## EPIC  (Earth Polychromatic Imaging Camera).
 
- ## Overview
+ ### Overview
  NASA EPIC API to retrieve Earth imagery captured by the DSCOVR satellite. The API provides access to both natural and enhanced color images taken on specific dates. By integrating this API, users can explore stunning images of our planet taken from space.
 
-## Challenges Faced
+### Challenges Faced
 
 1. **API Key Handling**: One challenge was securely handling the NASA API key. used environment variables through Vite (`import.meta.env`) to store the key securely and access it within the application.
 
@@ -80,7 +98,7 @@ npm run dev
 
 4. **Image Format**: Initially, images were not fetched in PNG format, causing issues with rendering. To resolve this, we modified the image URL to explicitly request the PNG format from the API.
 
-## Resolution
+### Resolution
 
 1. **API Key Handling**: securely stored the NASA API key in a Vite environment variable (`VITE_NASA_API_KEY`). This approach keeps the key out of version control and ensures security.
 
@@ -90,32 +108,30 @@ npm run dev
 
 4. **Image Format**: We updated the image URL to explicitly request the PNG format from the API. By appending `.png` to `imageData.image`, we ensured that images are fetched in the desired PNG format, resolving rendering issues.
 
-# Mars Rover Photos Viewer
+---
+## Mars Rover Photos Viewer
 
-## Overview
+### Overview
 The Mars Rover Photos Viewer component in our application utilizes the Mars Rover Photos API provided by NASA. This API allows users to retrieve photos taken by NASA's Mars rovers. Users can specify the Mars sol (solar day on Mars), the rover's camera, and pagination options to explore various photographs captured on the Martian surface.
 
-## API Description
+### API Description
 The Mars Rover Photos API offers access to a comprehensive collection of images from different cameras mounted on three rovers — Curiosity, Opportunity, and Spirit — based on several parameters:
 - `sol`: Mars solar day of the rover mission.
 - `camera`: Specific camera on the rover.
 - `page`: Pagination parameter for the response.
 
-## Implementation Details
+### Implementation Details
 The `Mars` component is implemented as a React functional component using hooks such as `useState` for managing state (e.g., selected sol, camera, and page) and `useEffect` for side effects to fetch data based on user input.
 
-## Challenges and Solutions
-### Rate Limiting
+### Challenges and Solutions
+#### Rate Limiting
 **Challenge:** Initially, frequent API calls during development quickly led to hitting the rate limit imposed by NASA's API.
 **Solution:** implemented conditional fetching to minimize unnecessary requests and introduced a simple caching mechanism to store previously fetched data. Additionally, added error handling to gracefully inform users when the rate limit has been exceeded.
 
-### Handling API Data Structure
+#### Handling API Data Structure
 **Challenge:** The API's response structure varied significantly based on the query parameters, sometimes leading to errors in rendering when data was absent.
 **Solution:** added robust error handling and data structure checks before attempting to render the photos. This ensured that the application could handle empty or unexpected responses without crashing.
 
-### UI Overlap
-**Challenge:** The fixed navbar was overlapping with the photo viewer component, obscuring part of the images.
-**Solution:**  adjusted the CSS of the main content area using Tailwind CSS to include sufficient top padding that accounted for the navbar's height, ensuring all UI elements are distinctly visible and accessible.
 ---
 
 ## Technology Stack
@@ -125,11 +141,20 @@ The `Mars` component is implemented as a React functional component using hooks 
 - Version Control: GitHub
 - Hosting Platform: _______
 
+---
+
 ## Functional Requirements
 
 • A user should be able to view daily or historical astronomy-related data.
 • Incorporate user authentication for accessing personalized features.
 • Display data dynamically based on user input or interactions.
+
+---
+
+## Testing
+
+### Unit Testing
+### Integration Testing
 
 
 

@@ -36,7 +36,7 @@
     height: 100%;
     flex: 1;
     object-fit: cover;
-    animation: zoomInOut 10s infinite alternate; /* 10 seconds for both zoom in and zoom out */
+    animation: zoomInOut 30s infinite alternate; /* 10 seconds for both zoom in and zoom out */
   }
   
   footer {

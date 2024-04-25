@@ -1,0 +1,33 @@
+.input-style {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button-style {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-style:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+@media screen and (min-width: 768px) {
+    .flex-col {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

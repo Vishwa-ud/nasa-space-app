@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import backgroundImage from '../assets/Earth.jpg';
 
+import './Mars.css';
+
 function Mars() {
     const [sol, setSol] = useState('');
     const [camera, setCamera] = useState('');
@@ -69,30 +71,31 @@ function Mars() {
         zIndex: -1 // Optional: ensures it stays behind other content
       }}></div>
             <h1 className="text-3xl font-bold mb-4">Mars Rover Photos</h1>
-            <div className="flex items-center justify-center space-x-4 mb-4">
-                <label  className="text-white-700">Enter Sol (Mars Solar Day):</label>
-                <input type="number" value={sol} onChange={e => setSol(e.target.value)} placeholder="Sol (Mars Solar Day)" className="border border-gray-300 rounded-md py-2 px-4" />
-                
-                <select value={camera} onChange={e => setCamera(e.target.value)} className="border border-gray-300 rounded-md py-2 px-4">
-                    <option value="">Select a Rover Camera</option>
-                    <option value="FHAZ">FHAZ</option>
-                    <option value="RHAZ">RHAZ</option>
-                    <option value="MAST">MAST</option>
-                    <option value="CHEMCAM">CHEMCAM</option>
-                    <option value="MAHLI">MAHLI</option>
-                    <option value="MARDI">MARDI</option>
-                    <option value="NAVCAM">NAVCAM</option>
-                    <option value="PANCAM">PANCAM</option>
-                    <option value="MINITES">MINITES</option>
-                </select>
-                
-                <label  className="text-white-700">Enter Page Number:</label>
-                <input type="number" value={page} onChange={e => setPage(e.target.value)} placeholder="Page Number" className="border border-gray-300 rounded-md py-2 px-4" />
-                
-                <button onClick={fetchPhotos} disabled={loading} className="bg-blue-500 text-white font-bold py-2 px-4 rounded">
-                    {loading ? 'Loading...' : 'Fetch Mars Photos'}
-                </button>
-            </div>
+            <div className="flex flex-col items-center mb-4">
+    <label className="text-white-700 mb-2">Enter Sol (Mars Solar Day):</label>
+    <input type="number" value={sol} onChange={e => setSol(e.target.value)} placeholder="Sol (Mars Solar Day)" className="input-style" />
+    
+    <label className="text-white-700 mt-4 mb-2">Select a Rover Camera:</label>
+    <select value={camera} onChange={e => setCamera(e.target.value)} className="input-style">
+        <option value="">Select a Rover Camera</option>
+        <option value="FHAZ">FHAZ</option>
+        <option value="RHAZ">RHAZ</option>
+        <option value="MAST">MAST</option>
+        <option value="CHEMCAM">CHEMCAM</option>
+        <option value="MAHLI">MAHLI</option>
+        <option value="MARDI">MARDI</option>
+        <option value="NAVCAM">NAVCAM</option>
+        <option value="PANCAM">PANCAM</option>
+        <option value="MINITES">MINITES</option>
+    </select>
+    
+    <label className="text-white-700 mt-4 mb-2">Enter Page Number:</label>
+    <input type="number" value={page} onChange={e => setPage(e.target.value)} placeholder="Page Number" className="input-style" />
+    
+    <button onClick={fetchPhotos} disabled={loading} className="button-style">
+        {loading ? 'Loading...' : 'Fetch Mars Photos'}
+    </button>
+</div>
 
             {error ? <p className="text-red-500 mb-4">{error}</p> : null}
 

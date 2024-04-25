@@ -59,9 +59,9 @@ function Earth() {
                     <DatePicker selected={selectedDate} onChange={date => setSelectedDate(date)} dateFormat="yyyy/MM/dd" />
                 </label>
                 <br />
-                <label>
-                    Select imagery type:
-                    <select value={selectedType} onChange={e => setSelectedType(e.target.value)}>
+                <br/>
+                <label>Select imagery type: 
+                    <select value={selectedType} onChange={e => setSelectedType(e.target.value)} className="border border-gray-300 rounded-md py-2 px-4">
                         <option value="natural">Natural Color</option>
                         <option value="enhanced">Enhanced Color</option>
                         <option value="aerosol">Aerosol</option>

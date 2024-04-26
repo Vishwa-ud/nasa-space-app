@@ -16,11 +16,8 @@ connection();
 // Middleware setup
 app.use(express.json());
 //app.use(cors());
-app.use(cors({
-    origin: 'https://nasa-space-app-frontend.vercel.app', // Allow requests from localhost:8080
-    methods: 'GET,POST', // Allow all request methods
-    credentials: true // Allow credentials
-  }));
+// Enable CORS for all routes
+app.use(cors());
 
 app.use(helmet()); 
 

@@ -17,7 +17,7 @@ connection();
 app.use(express.json());
 //app.use(cors());
 app.use(cors({
-    origin: 'http://localhost:5173' // Allow requests from localhost:8080
+    origin: 'https://nasa-space-app-frontend.vercel.app/' // Allow requests from localhost:8080
   }));
 
 app.use(helmet()); 

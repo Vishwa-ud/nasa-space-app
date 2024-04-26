@@ -29,7 +29,9 @@ app.use('/api/v1/users', UserRoutes);
 
 app.use('/api/v1/auth', AuthRoutes);
 
-
+app.get('/hello', (req, res) => {
+    res.send('Welcome to the NASA Space App API');
+});
 
 // Define the port for the server to listen on
 const port = process.env.PORT || 3543;

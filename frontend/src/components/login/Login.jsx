@@ -20,7 +20,7 @@ const Login = () => {
     const handleSubmit = async(e) => {
         e.preventDefault();
         try {
-            const url = "http://localhost:3543/api/v1/auth";
+            const url = "https://nasa-space-app-server.vercel.app/api/v1/auth";
             const {data: res} = await axios.post(url, data);
             localStorage.setItem("token",res.data)
             window.location = "/"

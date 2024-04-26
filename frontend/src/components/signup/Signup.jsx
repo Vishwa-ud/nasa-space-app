@@ -23,7 +23,7 @@ const Signup = () => {
     const handleSubmit = async(e) => {
         e.preventDefault();
         try {
-            const url = "http://localhost:3543/api/v1/users";
+            const url = "https://nasa-space-app-server.vercel.app/api/v1/users";
             const {data: res} = await axios.post(url, data);
             navigate("/login");
             console.log(res.message);

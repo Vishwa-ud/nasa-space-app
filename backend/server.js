@@ -29,7 +29,7 @@ app.use('/api/v1/users', UserRoutes);
 
 app.use('/api/v1/auth', AuthRoutes);
 
-app.get('/hello', (req, res) => {
+app.use('/hello', (req, res) => {
     res.send('Welcome to the NASA Space App API');
 });
 

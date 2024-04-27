@@ -181,6 +181,14 @@
         padding: 10px 0;
 		margin-bottom: 5px;
     }
+	.right {
+        order: 2; /* Optionally move the left section below the form on small screens */
+        margin-top: 5px; /* Add space between sections when stacked */
+    }
+
+    .left {
+        order: 1; /* Keep the form on top when stacked */
+    }
 }
 
 /* Further adjustments for smaller devices, typically smartphones. */
@@ -197,6 +205,14 @@
         width: 160px; /* Adjust button sizes */
         padding: 10px 0;
 		margin-bottom: 5px;
+    }
+	.right {
+        order: 2; /* Optionally move the left section below the form on small screens */
+        margin-top: 5px; /* Add space between sections when stacked */
+    }
+
+    .left {
+        order: 1; /* Keep the form on top when stacked */
     }
 }
 @media (max-width: 250px) {
@@ -217,5 +233,13 @@
         width: 140px; /* Adjust button sizes */
         padding: 8px 0; /* Adjust padding */
         margin-bottom: 4px; /* Adjust margin */
+    }
+	.right {
+        order: 2; /* Optionally move the left section below the form on small screens */
+        margin-top: 5px; /* Add space between sections when stacked */
+    }
+
+    .left {
+        order: 1; /* Keep the form on top when stacked */
     }
 }

@@ -4,6 +4,7 @@ import backgroundImage from '../assets/background.jpg';
 import { grid, reuleaux } from 'ldrs';
 
 import Particle from './Particle';
+import Foot from './Foot';
 
 grid.register();
 reuleaux.register();
@@ -29,7 +30,7 @@ const Hero = () => {
           stroke-length="0.15"
           bg-opacity="0.1"
           speed="1.2" 
-          color="#0DE732" 
+          color="#00FF11" 
         ></l-reuleaux>
       </div>
     );
@@ -47,10 +48,10 @@ const Hero = () => {
         </div>
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hello, Welcome To <span className='text-[#915EFF]'>NASA SPACE APP.</span>
+            Hello, Welcome To <span className='text-[#915EFF]'>Celestial Voyage</span>
           </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            Explore excellence! 
+          <p className={`${styles.heroSubText} mt-2 text-white-100`} style={{textShadow: '2px 2px 4px rgba(0,0,0,10)'}}>
+          Experience the cosmos like never before with NASA API-powered app! Journey through space, discovering its wonders and unlocking its mysteries. Explore the depths of the universe, where every star holds a story waiting to be told. Join the adventure and embark on a cosmic voyage that will ignite your imagination and expand your horizons.
           </p>
           <l-grid
             size="90"
@@ -59,6 +60,8 @@ const Hero = () => {
           ></l-grid>
         </div>
       </div>
+
+      <Foot />
     </section>
   );
 };

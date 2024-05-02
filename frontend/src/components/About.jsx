@@ -2,10 +2,19 @@ import React from 'react';
 
 import backgroundImage from '../assets/BGAbout.jpg';
 
+
+import { trio } from 'ldrs'
+
+trio.register()
+
+// Default values shown
+
+
 function About() {
   return (
     <div>
-      <div style={{
+      <div data-testid="background-image-container"
+      style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -18,7 +27,13 @@ function About() {
       }}></div>
       
       <div className="max-w-6xl mx-auto px-4 py-10" style={{ marginTop: '2vh' }}>
-        <h1 className="text-4xl font-bold text-center mb-6 text-purple-600">About This App</h1>
+        <h1 className="text-4xl font-bold text-center mb-6 text-purple-600">About This App 
+       <l-trio
+          size="30"
+          speed="1.3" 
+          color="#FB0EF3" 
+        ></l-trio>
+      </h1>
         <p className="text-xl text-center mb-8">
           Explore the wonders of the universe with comprehensive tools providing access to NASA's data and imagery.
         </p>

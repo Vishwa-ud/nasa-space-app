@@ -73,6 +73,7 @@ function Mars() {
             <h1 className="text-3xl font-bold mb-4">Mars Rover Photos</h1>
             <div className="flex flex-col items-center mb-4">
     <label className="text-white-700 mb-2">Enter Sol (Mars Solar Day):</label>
+    <label className="text-white-500 text-sm mb-2">* Refer to the mission manifest for the maximum Sol value.</label>
     <input type="number" value={sol} onChange={e => setSol(e.target.value)} placeholder="Sol (Mars Solar Day)" className="input-style" />
     
     <label className="text-white-700 mt-4 mb-2">Select a Rover Camera:</label>

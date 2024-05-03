@@ -2,7 +2,7 @@ import React from 'react';
 
 import backgroundImage from '../assets/BGAbout.jpg';
 
-
+import Particle from './Particle';
 import { trio } from 'ldrs'
 
 trio.register()
@@ -25,7 +25,7 @@ function About() {
         left: 0,
         zIndex: -1 // Optional: ensures it stays behind other content
       }}></div>
-      
+      <Particle />
       <div className="max-w-6xl mx-auto px-4 py-10" style={{ marginTop: '2vh' }}>
         <h1 className="text-4xl font-bold text-center mb-6 text-purple-600">About This App 
        <l-trio

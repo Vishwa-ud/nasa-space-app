@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 
+import Swal from 'sweetalert2'; // Import SweetAlert
+
 import backgroundImage from '../../assets/BGMain.jpg';
 
 const Login = () => {
@@ -23,6 +25,23 @@ const Login = () => {
             const url = "https://nasa-space-app-server.vercel.app/api/v1/auth";
             const {data: res} = await axios.post(url, data);
             localStorage.setItem("token",res.data)
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              Toast.fire({
+                icon: "success",
+                title: "Signed in successfully"
+              });
+
             window.location = "/"
         } catch (error) {
             if (error.response && error.response.status >= 400 && error.response.status <= 500) {

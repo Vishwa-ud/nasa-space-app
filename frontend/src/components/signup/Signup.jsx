@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 
+import Swal from 'sweetalert2'; // Import SweetAlert
+
 import backgroundImage from '../../assets/BGMain.jpg';
 
 const Signup = () => {
@@ -27,6 +29,23 @@ const Signup = () => {
             const {data: res} = await axios.post(url, data);
             navigate("/login");
             console.log(res.message);
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              Toast.fire({
+                icon: "success",
+                title: "Signed up successfully"
+              });
+
         } catch (error) {
             if (error.response && error.response.status >= 400 && error.response.status <= 500) {
                 console.log(error.response.data.message);

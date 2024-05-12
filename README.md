@@ -1,22 +1,53 @@
-# React Frontend Application Using NASA APIs
+# React Frontend Application Using NASA APIs 🚀🌌
 
+React frontend application that utilizes various NASA APIs to display astronomy-related data, including Mars Rover Photos, Astronomy Picture of the Day, and Earth imagery APIs. Users can explore daily or historical data and interact with the application to view dynamic content.
+
+
+### Accessing the Application
+
+You can access the hosted application by following this link:
+
+[Hosted-Application](https://nasa-space-web.vercel.app/)
+
+##### 🟢 new users need to sign up.
+
+---
 
  Table of contents
 =================
 
 <!--ts-->
+   * [Overview](#overview)
    * [Setup guide](#setup-guide)
-   * [Build process](#build-process)
+   * [Technology Stack](#technology-stack)
+   * [Deployment](#deployment)
    * [API Integration](#api-integration)
-     * [APOD  (Astronomy Picture of the Day).](#apod-(astronomy-picture-of-the-day).)
-     * [EPIC  (Earth Polychromatic Imaging Camera).](epic-(earth-polychromatic-imaging-camera).)
+     * [APOD (Astronomy Picture of the Day)](#apod-astronomy-picture-of-the-day)
+     * [EPIC (Earth Polychromatic Imaging Camera)](#epic-earth-polychromatic-imaging-camera)
      * [Mars Rover Photos Viewer](#mars-rover-photos-viewer)
    * [Testing](#testing)
-      * [Unit Testing](#unit-testing)
-      * [Integration Testing ](#integration-testing)
+      * [Backend Test](#backend-test)
+      * [Frontend Test](#frontend-test)
     
         
 <!--te-->
+
+## Overview
+NASA API Explorer provides users with a user-friendly interface to explore data from NASA's APIs. It offers a seamless experience for viewing Mars Rover Photos, Astronomy Picture of the Day, and Earth imagery. Users can choose to view daily updates or search for historical data.
+
+---
+
+## Technology Stack
+- Frontend: React + Vite
+- Backend: Express Js, Node JS
+- Database: MongoDB
+- Language: JavaScript
+- CSS Framework: Tailwind CSS
+- Session Management: JSON Web Token
+- Version Control: GitHub
+- Hosting Platform: Vercel
+
+---
 
 ##  Setup guide
 
@@ -45,7 +76,9 @@ git clone <github_repo_link>
 ```
 npm i
 ```
-3. run backend
+3. Set up environment variables in a .env file (Place .env File On Backend Folder) Add  environment variables ex: DataBase Link , SALT, JWTPRIVATEKEY 
+
+4. run backend
 ```
 npm start
 ```
@@ -61,32 +94,98 @@ npm start
 ```
 npm i
 ```
-4. run frontend
+4. Set up environment variables in a .env file (Place .env File On Frontend Folder).
+ex :VITE_NASA_API_KEY   (your nasa api key) For How to generate NASA API Key Look API Integration Section.
+
+5. run frontend
 ```
 npm run dev
 ```
 
-##  Build process
+---
+
+## Deployment
+deployed using Vercel for seamless hosting.
+- Why vercel,
+- Real-time Updates: With Vercel, our application updates automatically in real-time whenever  push commits to GitHub.
+- Free Hosting: enjoy free hosting on Vercel's generous free tier, saving costs while ensuring our application is always accessible.
+  
+- Simply follow these steps to host your react - node app:
+
+1. Sign up for an account on Vercel.(Login with github accout)
+2. Install Vercel to Your Repository (selcet the repo you want to Host)
+3. Import Repository 
+4. Configure Project In Root Directory first select backend and Add Environment Variables Like MongoDB url Secret KEY ect. And Deploy .
+5. Also For frontend Import to your currunt project cahnge name use frontend or what you like then Root Directory select frontend  Add Environment Variables Like if you need . Then Deploy.
+
+### Frontend
+
+In Your Frontend, where you Connect with backend. use Backend Domain addres you deplployed insted of your Localhost. 
+ex: like this 
+```
+https://web-app-server.vercel.app/api/v1/
+
+```
+
+### Backend
+1. In package.json change nodemon to node
+```
+"scripts": {
+    "start": "node server.js"
+  },
+```
+2. Create vercel.json
+and coppy this.
+```
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "server.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/server.js"
+        }
+    ]
+}
+
+```
+3. In Server.js
+```
+app.use(cors({
+    origin: 'https://yourwebappname.vercel.app', // Include your Frontend Domain address
+    methods: 'GET,POST', // Allow all request methods
+    credentials: true // Allow credentials
+  }));
+
+```
+
+---
 
 ## API Integration
 
-## how to use the APIs.
+### how to use the APIs.
 
 ### Generate API Key 
+ - [Link to nasa open api](https://api.nasa.gov/)
  - signup and get key via email
  - use .env to keep api key secured no one can see.
 
-## APOD  (Astronomy Picture of the Day.)
+## APOD (Astronomy Picture of the Day)
 
 ### Overview
  NASA Astronomy Picture of the Day (APOD) API to fetch daily images and related information about space and astronomy. The APOD API provides a rich source of fascinating images along with their descriptions, which  utilize to enhance the user experience of our application.
 
 
- # Fetching Data from NASA API
+ ### Fetching Data from NASA API
 
 fetch data from the NASA (National Aeronautics and Space Administration) API to retrieve the Astronomy Picture of the Day (APOD) and related information. Here's an overview of how fetch and cache data from the NASA API:
 
-## Fetching Process
+### Fetching Process
 use JavaScript's built-in `fetch` function to make HTTP requests to the NASA APOD API endpoint. Here's a breakdown of the steps involved:
 
 1. **API Endpoint**:  construct the API request URL using the base URL `https://api.nasa.gov/planetary/apod` and include our NASA API key as a query parameter (`api_key`). The API key is securely stored in our application environment.
@@ -121,7 +220,7 @@ Integrating the APOD API into our project proved to be a valuable addition, enri
 
 ---
 
- ## EPIC  (Earth Polychromatic Imaging Camera).
+## EPIC (Earth Polychromatic Imaging Camera)
 
  ### Overview
  NASA EPIC API to retrieve Earth imagery captured by the DSCOVR satellite. The API provides access to both natural and enhanced color images taken on specific dates. By integrating this API, users can explore stunning images of our planet taken from space.
@@ -134,7 +233,7 @@ Integrating the APOD API into our project proved to be a valuable addition, enri
 
 3. **Data Handling**: The API responses contain various data fields, and handling them dynamically posed a challenge. addressed this by parsing the response data and displaying relevant information based on user selections.
 
-4. **Image Format**: Initially, images were not fetched in PNG format, causing issues with rendering. To resolve this, we modified the image URL to explicitly request the PNG format from the API.
+4. **Image Format**: Initially, images were not fetched in PNG format, causing issues with rendering. To resolve this,  modified the image URL to explicitly request the PNG format from the API.
 
 ### Resolution
 
@@ -144,7 +243,7 @@ Integrating the APOD API into our project proved to be a valuable addition, enri
 
 3. **Data Handling**: parsed the API response data and displayed relevant information dynamically based on user selections. This involved conditional rendering of components and fields, ensuring a seamless user experience.
 
-4. **Image Format**: We updated the image URL to explicitly request the PNG format from the API. By appending `.png` to `imageData.image`, we ensured that images are fetched in the desired PNG format, resolving rendering issues.
+4. **Image Format**: updated the image URL to explicitly request the PNG format from the API. By appending `.png` to `imageData.image`, ensured that images are fetched in the desired PNG format, resolving rendering issues.
 
 ---
 ## Mars Rover Photos Viewer
@@ -170,30 +269,92 @@ The `Mars` component is implemented as a React functional component using hooks 
 **Challenge:** The API's response structure varied significantly based on the query parameters, sometimes leading to errors in rendering when data was absent.
 **Solution:** added robust error handling and data structure checks before attempting to render the photos. This ensured that the application could handle empty or unexpected responses without crashing.
 
----
-
-## Technology Stack
-- Frontend: React + Vite
-- Language: JavaScript
-- CSS Framework: Tailwind CSS
-- Version Control: GitHub
-- Hosting Platform: _______
-
----
-
-## Functional Requirements
-
-• A user should be able to view daily or historical astronomy-related data.
-• Incorporate user authentication for accessing personalized features.
-• Display data dynamically based on user input or interactions.
 
 ---
 
 ## Testing
 
-### Unit Testing
-### Integration Testing
+### Backend Test
+
+#### Unit Testing
+
+- Tests with Jest and SuperTest
+1. setup
+```
+npm i jest supertest cross-env
+```
+2. Package.json add test script
+```
+"scripts": {
+    "test": "cross-env NODE_ENV=test jest --testTimeout=5000",
+   }
+```
+3. create test folder in backend mkdir tests
+4. create test file for each test ex users.test.js and write test case for each
+5. run test
+```
+npm test
+```
+#### Results for Register and Login :
+![Backendtest](https://github.com/sliitcsse/se3040-assignment02-Vishwa-ud/assets/94515855/a9787527-53ad-4c6e-a328-f70640019f51)
+
+#### Integration Testing
+
+Integration Test with Postman 
+![interigation test](https://github.com/sliitcsse/se3040-assignment02-Vishwa-ud/assets/94515855/538627ab-2015-4e14-9122-f680930bc0c0)
 
 
+### Frontend Test
+#### Unit Testing &  Integration Testing
+- Using Jest and React Testing Library and Vitest.
+- Set Up the Testing environmet in frontend.
+1. install Jest and React Testing Library
+``` 
+npm install  vitest jsdom @testing-library/jest-dom @testing-library/react @testing-library/user-event -D
+```
+2. package.json update
+```
+"scripts": {
+    "test": "vitest"
+  }
+```
+3.mkdir tests   (create a test folder in root frontend) 
+setup.js
+```
+import { afterEach, vi } from "vitest";
+import { cleanup } from "@testing-library/react";
+import "@testing-library/jest-dom/vitest";
 
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/V1F4A3D5)
+afterEach(() => {
+    cleanup();
+    vi.clearAllMocks();
+});
+```
+4. update vite.config.js
+```
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles : "./tests/setup.js"
+  },
+})
+
+```
+5. implement test files create ex:login.test.jsx 
+6. run test
+```
+npm test
+or 
+npm run test:ui
+```
+Test Results :
+
+![testtt](https://github.com/sliitcsse/se3040-assignment02-Vishwa-ud/assets/94515855/98d7373e-ee72-447e-8597-a73882a0ca5d)
+
+---
